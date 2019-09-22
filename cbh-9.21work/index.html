@@ -15,10 +15,10 @@
 				alert('您卡上余额还有520元');
 				var c = Number(prompt('请输入您要取走的金额'));
 				if (c<balance) {
-					var bal = balance-c;
-					alert('您已取走'c'元，账户还剩'+bal+'元');
+					bal = balance-=c;
+					alert('您已取走'+c+'元，账户还剩'+bal+'元');
 				}if (c>balance) {
-					var d = c-balance;
+					d = c-balance;
 					alert('您的账户余额不足');
 				}
 			} else{
