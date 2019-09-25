@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+      div.top{
+          width: 100%;
+          height: 245px;
+      }
+      div.top>div.top-first{
+          width: 100%;
+          height: 200px;
+          background-color: rgb(63,81,181);
+          /*margin: 0 auto;*/
+      }
+      div.top>div.top-first>.span>center>img{
+      	  /*margin: 0 auto;*/ 
+      	  margin-top: 20px;
+      	  /*text-align: center;*/
+      }
+      div.top>div.top-first>.span>p{
+      	  margin-bottom: 15px;
+      	  font-weight: 400;
+      	  text-align: center;
+      	  font-size: 14px;
+      	  color: #fff;
+      }
+      div.top>div.top-buttom{
+          width: 100%;
+          height: 45px;
+          background-color: #3A4BA7;
+          text-align: center;
+          line-height: 45px;
+      }
+      div.top>div.top-buttom>a{
+      	font-size: 14px;
+      	margin: 0 60px 0 60px;
+      	color: white;
+      	text-decoration: none;
+      }
+      div.center{
+      	/*margin-top: 20px;*/
+      	/*background-color: red;*/
+      	margin: 0 auto;
+      	width: 920px;
+      	height: 1260px;
+      	padding-top: 40px;
+      }
+      div.center>div.div1{
+      	width: 920px;
+      	height: 420px;
+      	/*background-color: red;*/
+      	display: flex;
+      	flex-direction: row;
+      	flex-wrap: nowrap;
+      	justify-content: center;
+      }
+      div.center>.div1>div{
+      	/*background-color: red;*/
+      	margin: 8px;
+      	width: calc(33.3333333333% - 16px);px;
+      	height: 407px;
+      	border-radius:2px;
+      	border: 1px solid #cdcdcd;
+      	box-shadow:0px 3px 5px #cdcdcd;
+      }
+      div.center>.div1>div>img{
+      	width: 100%;
+      	height: auto;     	
+      }
+      div.center>.div1>div>div.td1{
+      	padding-left: 16px;
+      	padding-top: 16px;
+      	padding-right: 16px;
+      	font-size: 24px;
+      }
+      div.center>.div1>div>div.td2{
+      	color: rgba(0,0,0,.54);
+      	font-size: 1rem;
+      	line-height: 18px;
+      	padding: 16px;
+      	width: 90%;
+      }
+      div.center>.div1>div>div.td3{
+      	border-top: 1px solid rgba(0,0,0,.1);
+      	font-size: 16px;
+      	width: 100%;
+      	padding: 8px;
+      	box-sizing: border-box;
+      	/*height: 40px;*/
+      }
+      div.center>.div1>div>div.td3>span{
+      	color: rgb(255,64,129);
+      	height:36px;
+      	width: 117.5px;
+      	position: relative;
+      	left: 15px;
+      }
+      div.center>.div1>div>div.td3>span:hover{
+      	background-color: #CDCDCD;
+      	cursor: pointer;
+      }
+      div.buttom{
+      	padding: 32px 16px;
+      	line-height: 36px;
+      	font-size: 14px;
+      	color:#9e9e9e;
+      	background-color: #424242;
+      	text-align: center;
+      }
+      div.buttom>span{
+      	color: white;
+      	margin-right: 16px;
+      }
+      div.buttom>span>a{
+      	border-bottom: 1px dashed white;
+      }
+      div.buttom>span>a:hover{
+      	cursor: pointer;
+      }
+      div.buttom>a:hover{
+      	cursor: pointer;
+      }
+      div.xin{
+      	background-color: white;
+      	position: fixed;
+      	right: 50px;
+      	bottom: 50px;
+      	width: 56px;
+      	height: 56px;
+      	border-radius: 50%;
+      }
+      div.xin>a:hover{
+      	cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+	<!--头部-->
+    <div class="top">
+    	<!--logo-->
+        <div class="top-first">
+            <span class="span">
+                	<center><img style="width: 120px;height: 120px;" src="img/download.png"/></center>
+                <p class="span1">Material Design Portfolio</p>
+            </span>
+        </div>
+        <!--导航栏-->
+        <div class="top-buttom">
+             <a href="">HOME</a>
+             <a href="">PORTFOLIO</a>
+             <a href="">ABOUT</a>
+             <a href="">CONTACT</a>
+        </div>
+    </div>
+    <!--中部：弹性布局-->
+    <div class="center">
+    	<div class="div1 div2">
+    		<div>
+    			<img src="img/9.jpg"/>
+    			<div class="td1">Rocky Peak</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    		<div>
+    			<img src="img/8.jpg"/>
+    			<div class="td1">Night Shadow</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    		<div>
+    			<img src="img/7.jpg"/>
+    			<div class="td1">Sky Reach</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    	</div>
+    	<div class="div1 div3">
+    		<div>
+    			<img src="img/6.jpg"/>
+    			<div class="td1">Pencil Tip</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    		<div>
+    			<img src="img/5.jpg"/>
+    			<div class="td1">Magic Leaves</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    		<div>
+    			<img src="img/4.jpg"/>
+    			<div class="td1">Water Flow</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    	</div>
+    	<div class="div1 div4">
+    		<div>
+    			<img src="img/3.jpg"/>
+    			<div class="td1">Lonely Bridge</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    		<div>
+    			<img src="img/2.jpg"/>
+    			<div class="td1">Busy Street</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    		<div>
+    			<img src="img/1.jpg"/>
+    			<div class="td1">City Scape</div>
+    			<div class="td2">Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt..</div>
+    			<div class="td3"><span>Learn More</span></div>
+    		</div>
+    	</div>
+    </div>
+    <!--尾部-->
+    <div class="buttom">
+    	<span>Copyright © 2019.Company name All rights reserved.<a>网页模板</a></span><a>Privacy & Terms</a>
+    </div>
+    <div class="xin"><a><img src="img/10.png"/></a></div>
+</body>
+</html>
