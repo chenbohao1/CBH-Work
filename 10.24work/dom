@@ -1,0 +1,195 @@
+DOM
+一丶Node
+属性
+1.nodeType   只读属性。用于表明节点的类型。
+使用方式document.nodeType === 节点类型
+ 节点类型常量
+                Node.ELEMENT_NODE                             一个元素节点  例如 <div>
+                Node.TEXT_NODE                                   Element或者Attr中实际的文字
+                Node.COMMENT_NODE                              一个Comment节点 
+                Node.DOCUMENT_NODE                           一个Document节点
+                Node.DOCUMENT_TYPE_NODE                 描述文档类型的节点 
+                Node.DOCUMENT_FRAGMENT_NODE            一个DocumentFragement节点
+2.nodeName   只读属性。返回当前节点作为字符串的名称(大写) 
+使用方式var div=document.createElement('div');
+                div.textContent="ccc";
+ 
+                console.log(div.nodeName) //"DIV"
+                console.log(div.firstChild.nodeName);//"#text"
+3.nodeValue   该属性返回或设置当前节点的值
+使用方式var div = document.createElement("div");
+                div.textContent = "hello! cc...";
+                console.log(div.nodeValue); //null
+                console.log(div.firstChild.nodeValue);  //"hello! cc.."
+4.childNodes   只读属性。返回NodeList的孩子nodes给定元素
+使用方式var childs=document.body.childNodes;
+                //将类数组对象转换为数组
+                //var arr=Array.prototype.slice.call(childs,0);
+                var arr=Array.prototype.slice.apply(childs,[0]);
+                console.log(arr);
+5.parentNode   返回指定的节点在DOM树中的父节点
+使用方式console.log（document.firstChild）
+6.lastChild   只读属性。返回树节点最后一个子节点。如果无子节点则返回null，如果只有一个子节点时，firstChild和lastChild的值指向同一个节点
+7.previousSibling   返回当前节点的前一个兄弟节点，没有则返回null
+.使用方式
+.   alert(document.getElementById("a1").previousSibling); // null
+         alert(document.getElementById("a2").previousSibling.id); // "a1"
+8.nextSibling     只读属性。返回其父节点的childNodes列表中紧跟在其后的节点，如果指定的节点为最后一个节点，则返回null。
+使用方式<div id="div1">this is div1</div>
+              <div id="div2">this is div2</div>
+ 
+            <script>
+                    console.log(document.body.childNodes); //[text, div#div1, text, div#div2, text, script]
+                    var el=document.getElementById('div1').nextSibling;
+                    var i=1;
+                    while(el){
+                         console.log(i+' ---' +el.nodeName); //1 ---#text 2 ---DIV 3 ---#text  4 ---SCRIPT
+                         el=el.nextSibling;
+                         i++;
+                    }
+            </script>
+9.ownerDocument   只读属性。返回当前节点的顶层的document对象，即整个文档的文档节点。
+使用方法document.ownerDocument//null
+方法
+1.appendChild()   该方法将一个节点添加到指定父节点列表末尾
+使用方法    /创建一个div元素,然后添加到body的最尾部
+                     var div=document.createElement("div");
+                     var returnNode=document.body.appendChild(div);
+2.insertBefore()   该方法在参考节点之前插入一个节点作为一个指定父节点的子节点。
+使用方式<div id="parent">
+                        <span id="child">child sapn</span>
+                    </div>
+                    <script>
+                        //创建一个span标签
+                        var sp1=document.createElement("span");
+                        //获取id为child的span标签
+                        var sp2=document.getElementById('child');
+                            //获取div
+                        var parentDiv = sp2.parentNode;
+                         console.log(parentDiv.childNodes); // [text, span#child, text]
+                        //将创建的span插入到html中span标签前
+                        parentDiv.insertBefore(sp1, sp2);
+                        console.log(parentDiv.childNodes); // [text, span, span#child, text]
+ 
+                    </script>
+3.replaceChild()   用指定的节点替换当前节点的一个子节点,并返回替换掉的节点
+使用方式 <div>
+                        <span id="oldSpan">oldSpan</span>
+                    </div>
+                    <script>
+                        //创建一个span标签
+                        var newSpan=document.createElement('span');
+                        //添加id 属性
+                        newSpan.setAttribute("id","newSpan");
+                        //创建文本
+                        var newSpan_content=document.createTextNode("new Span元素的content");
+                        //将文本加入newSpan中
+                        newSpan.appendChild(newSpan_content);
+                        //获取 oldSpan
+                        var oldSpan=document.getElementById('oldSpan');
+                        var parentDiv=oldSpan.parentNode;
+                        var returnNode=parentDiv.replaceChild(newSpan,oldSpan);
+                        console.log(returnNode); //<span id="oldSpan">oldSpan</span>
+                    </script>
+4.removeChild()    该方法从DOM中删除一个子节点,返回删除的节点
+使用方式 <div id="top">
+                    <div id="nested"></div>
+                </div>
+            <script>
+                    //移除一个元素节点的所有子元素
+                var element=document.getElementById('top');
+                while(element.firstChild){
+                    element.removeChild(element.firstChild);
+                }
+            </script>
+二丶Document
+集合
+1.all[]   提供对文档中所有 HTML 元素的访问
+2.anchors[]   返回对文档中所有 Anchor 对象的引用
+3.applets   返回对文档中所有 Applet 对象的引用
+4.forms[]   返回对文档中所有 Form 对象引用
+5.images[]   返回对文档中所有 Image 对象引用
+6.links[]   返回对文档中所有 Area 和 Link 对象引用
+属性
+1.body   提供对 <body> 元素的直接访问。
+对于定义了框架集的文档，该属性引用最外层的 <frameset>
+2.cookie   设置或返回与当前文档有关的所有 cookie
+3.domain  返回当前文档的域名
+4.lastModified   返回文档被最后修改的日期和时间
+5.referrer   返回载入当前文档的文档的 URL
+6.URL   返回当前文档的 URL
+方法
+1.close()   关闭用 document.open() 方法打开的输出流，并显示选定的数据
+2.getElementById()   返回对拥有指定 id 的第一个对象的引用
+3.getElementsByName()   返回带有指定名称的对象集合
+4.getElementsByTagName()   返回带有指定标签名的对象集合
+5.open()   打开一个流，以收集来自任何 document.write() 或 document.writeln() 方法的输出。
+6.write()   向文档写 HTML 表达式 或 JavaScript 代码
+7.writeln()   等同于 write() 方法，不同的是在每个表达式之后写一个换行符
+三丶Element
+属性和方法
+1.element.accessKey   设置或返回元素的快捷键
+2.element.appendChild()   向元素添加新的子节点，作为最后一个子节点
+3.element.attributes   返回元素属性的 NamedNodeMap
+4.element.childNodes   返回元素子节点的 NodeList
+5.element.className   设置或返回元素的 class 属性
+6.element.clientHeight   返回元素的可见高度
+7.element.clientWidth   返回元素的可见宽度
+8.element.cloneNode()   克隆元素
+9.element.compareDocumentPosition()   比较两个元素的文档位置
+10.element.contentEditable   设置或返回元素的文本方向
+11.element.dir   设置或返回元素的内容是否可编辑
+12.element.firstChild   返回元素的首个子
+13.element.getAttribute()   返回元素节点的指定属性值
+14.element.getAttributeNode()   返回指定的属性节点
+15.element.getElementsByTagName()   返回拥有指定标签名的所有子元素的集合
+16.element.getFeature()   返回实现了指定特性的 API 的某个对象
+17.element.getUserData()   返回关联元素上键的对象
+18.element.hasAttribute()   如果元素拥有指定属性，则返回true，否则返回 false
+19.element.hasAttributes()   如果元素拥有属性，则返回 true，否则返回 false
+20.element.hasChildNodes()   如果元素拥有子节点，则返回 true，否则 false
+21.element.id   设置或返回元素的 id
+22.element.innerHTML   设置或返回元素的内容
+23.element.insertBefore()   在指定的已有的子节点之前插入新节点
+24.element.isContentEditable   设置或返回元素的内容
+25.element.isDefaultNamespace()   如果指定的 namespaceURI 是默认的，则返回 true，否则返回 false
+26.element.isEqualNode()   检查两个元素是否相等
+27.element.isSameNode()   检查两个元素是否是相同的节点
+28.element.isSupported()   如果元素支持指定特性，则返回 true
+29.element.lang   设置或返回元素的语言代码
+30.element.lastChild   返回元素的最后一个子元素
+31.element.namespaceURI   返回元素的 namespace URI
+32.element.nextSibling   返回位于相同节点树层级的下一个节点
+33.element.nodeName   返回元素的名称
+34.element.nodeType   返回元素的节点类型
+35.element.nodeValue   设置或返回元素值
+36.element.normalize()   合并元素中相邻的文本节点，并移除空的文本节点
+37.element.offsetHeight   返回元素的高度
+38.element.offsetWidth   返回元素的宽度
+39.element.offsetLeft   返回元素的水平偏移位置
+40.element.offsetParent   返回元素的偏移容器
+41.element.offsetTop   返回元素的垂直偏移位置
+42.element.ownerDocument   返回元素的根元素（文档对象）
+43.element.parentNode   返回元素的父节点
+44.element.previousSibling   返回位于相同节点树层级的前一个元素
+45.element.removeAttribute()   从元素中移除指定属性
+46.element.removeAttributeNode()   移除指定的属性节点，并返回被移除的节点
+47.element.removeChild()   从元素中移除子节点
+48.element.replaceChild()   替换元素中的子节点
+49.element.scrollHeight   返回元素的整体高度
+50.element.scrollLeft   返回元素左边缘与视图之间的距离
+51.element.scrollTop   返回元素上边缘与视图之间的距离
+52.element.scrollWidth   返回元素的整体宽度
+53.element.setAttribute()   把指定属性设置或更改为指定值
+54.element.setAttributeNode()   设置或更改指定属性节点
+55.element.setIdAttribute()
+56.element.setIdAttributeNode()
+57.element.setUserData()    把对象关联到元素上的键
+58.element.style   设置或返回元素的 style 属性
+59.element.tabIndex   设置或返回元素的 tab 键控制次序
+60.element.tagName   返回元素的标签名
+61.element.textContent   设置或返回节点及其后代的文本内容
+62.element.title   设置或返回元素的 title 属性
+63.element.toString()   把元素转换为字符串
+64.nodelist.item()   返回 NodeList 中位于指定下标的节点
+65.nodelist.length   返回 NodeList 中的节点数
